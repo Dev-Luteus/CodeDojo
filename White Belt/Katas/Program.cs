@@ -30,9 +30,8 @@
         }
     }
     private void GoBack() {
-        Console.Clear();
-        Console.WriteLine("\x1b[92mPress anything to go back to Main Menu..\x1b[39m");
-        Console.ReadLine();
+        Console.WriteLine("\x1b[92m> Press anything to go back to Main Menu.. <\x1b[39m");
+        Console.ReadLine(); Console.Clear();
     }
     private void Kata1() {
         Console.WriteLine("Welcome\x1b[92m user\x1b[39m, whats your name? ");
@@ -47,12 +46,22 @@
             Console.WriteLine("\x1b[91mPlease enter a valid integer!\x1b[39m\n" +
                               "Rate your overall experience from 1-10\n");
         } 
-        
         Console.WriteLine(satisfaction >= 7 ? "Okay, not bad! Good luck!" : "Ouch! Good luck!");
         GoBack();
     }
     private void MiniKata1() {
-        Console.WriteLine("boop");
+        string charName = "Arin";
+        int charHealth = 100;
+        float attackPower = 15.5f;
+        bool isParalyzed = true;
+        double goldCoins = 24.75;
+        Console.WriteLine($"Character Name: {charName}\n" +
+                          $"Health Points: {charHealth}\n" +
+                          $"Attack Power: {attackPower}\n" +
+                          $"Is Paralyzed: {isParalyzed}\n" +
+                          $"Gold Coins: {goldCoins}\n");
+        
+        GoBack();
     }
     private void MiniKata2() {
         Console.WriteLine("baap");
