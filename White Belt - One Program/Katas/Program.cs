@@ -86,8 +86,8 @@ class WhiteBelt {
         int healthPoints = 100;
         float attackPower = 30f;
         float experiencePoints = 250f;
-        bool isParalyzed = false;
-        double currencyAmount = 150;
+        //bool isParalyzed = false;
+        //double currencyAmount = 150;
 
         double charHealth = healthPoints;
         attackPower = (int)attackPower;
@@ -95,7 +95,9 @@ class WhiteBelt {
         Double.Parse(goldString);
         
         bool isNameParsed = int.TryParse(name, out int result);
-        if (isNameParsed == false) { name = "Parsing failed: name is not a number."; }
+        if (isNameParsed == false) {
+            name = "Parsing failed: name is not a number.";
+        }
         
         Console.WriteLine($"Health: {charHealth}\n" +
                           $"Attack Power: {attackPower}\n" +
@@ -181,7 +183,7 @@ class WhiteBelt {
 2. Ignore the chest
 3. Leave the area");
 
-            userInput = Console.ReadLine();
+            userInput = Console.ReadLine()!;
             if (userInput == "1" || userInput == "2" || userInput == "3") {
                 isValidInput = true;
             } else {
@@ -259,7 +261,7 @@ class WhiteBelt {
                               $"1. Attack\n" +
                               $"2. Heal\n" +
                               $"3. Pass turn\n");
-                userInput = Console.ReadLine();
+                userInput = Console.ReadLine()!;
                 
                 if (userInput == "1" || userInput == "2" || userInput == "3") {
                     isValidInput = true;
