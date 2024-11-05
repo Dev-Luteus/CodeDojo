@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace Kata2;
+class Program {
+    static void Main(string[] args) { // annoying to edit all of them, string args survives
+        Console.WriteLine("Hello, World!");
+    }
+}
