@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniKata5", "MiniKata5\MiniKata5.csproj", "{3EC3EC90-31DD-4115-AC8A-8B209A1B08C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata5", "Kata5\Kata5.csproj", "{441D77A1-FD12-4BDC-954B-9356629833E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniKata6", "MiniKata6\MiniKata6.csproj", "{947007E5-AA7D-4A7E-964C-58A1CB5F8359}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EC3EC90-31DD-4115-AC8A-8B209A1B08C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC3EC90-31DD-4115-AC8A-8B209A1B08C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC3EC90-31DD-4115-AC8A-8B209A1B08C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC3EC90-31DD-4115-AC8A-8B209A1B08C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441D77A1-FD12-4BDC-954B-9356629833E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441D77A1-FD12-4BDC-954B-9356629833E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441D77A1-FD12-4BDC-954B-9356629833E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441D77A1-FD12-4BDC-954B-9356629833E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{947007E5-AA7D-4A7E-964C-58A1CB5F8359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{947007E5-AA7D-4A7E-964C-58A1CB5F8359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{947007E5-AA7D-4A7E-964C-58A1CB5F8359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{947007E5-AA7D-4A7E-964C-58A1CB5F8359}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
