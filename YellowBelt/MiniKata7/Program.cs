@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Common;
 using System.Threading.Channels;
 
 namespace MiniKata7;
@@ -7,23 +8,39 @@ class Program
 {
     static void Main(string[] args)
     {
-        var User = new Player();
+        Player userChar = new("Arin", 100, 1);
         
-        User.name = "Arin";
-        User.health = 100;
-        User.level = 1;
-        
-        Console.WriteLine($"{User.name}" + $"\n{User.health}" + $"\n{User.level}");
+        //I could just do "var enemy" but whatever
         var Goblin = new Enemy("Goblin", 50, 10);
+        
+        Console.WriteLine("Player Info: " +
+                          $"\n{userChar.Name}" + $"\n{userChar.Health}" + $"\n{userChar.Level}");
+        Console.WriteLine("\nEnemy Info: " +
+                          $"\n{Goblin.Name}" + $"\n{Goblin.Health}" + $"\n{Goblin.Damage}");
     }
 }
 
-class Player()
+public class Player
 {
-    public string name { get; set; }
-    public int health { get; set; }
-    public int level { get; set; }
+    public string Name { get; set; }
+    public int Health { get; set; }
+    public int Level { get; set; }
+    public Player(string name, int health, int level)
+    {
+        Name = name;
+        Health = health;
+        Level = level;
+    }
 }
-class Enemy(string type, int health, int damage)
+class Enemy
 {
+    public string Name { get; set; }
+    public int Health { get; set; }
+    public int Damage { get; set; }
+    public Enemy(string name, int health, int damage)
+    {
+        Name = name;
+        Health = health;
+        Damage = damage;
+    }
 }
