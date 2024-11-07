@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata5", "Kata5\Kata5.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniKata6", "MiniKata6\MiniKata6.csproj", "{947007E5-AA7D-4A7E-964C-58A1CB5F8359}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata6", "Kata6\Kata6.csproj", "{D4239A88-5500-4D65-8C2C-9759F48F5F85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniKata7", "MiniKata7\MiniKata7.csproj", "{FD21F9F5-9EEA-4CA4-853D-67D0605A615D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{947007E5-AA7D-4A7E-964C-58A1CB5F8359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{947007E5-AA7D-4A7E-964C-58A1CB5F8359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{947007E5-AA7D-4A7E-964C-58A1CB5F8359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4239A88-5500-4D65-8C2C-9759F48F5F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4239A88-5500-4D65-8C2C-9759F48F5F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4239A88-5500-4D65-8C2C-9759F48F5F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4239A88-5500-4D65-8C2C-9759F48F5F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD21F9F5-9EEA-4CA4-853D-67D0605A615D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD21F9F5-9EEA-4CA4-853D-67D0605A615D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD21F9F5-9EEA-4CA4-853D-67D0605A615D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD21F9F5-9EEA-4CA4-853D-67D0605A615D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
