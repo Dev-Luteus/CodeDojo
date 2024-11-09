@@ -14,7 +14,8 @@ class Player
     private int health;
     private int level;
     private int experience;
-
+    
+    // These public properties are Redundant atm, but, I will leave them here anyway for demonstration.
     public int Health {
         get => health;
         private set => health = value;
