@@ -58,7 +58,7 @@ class NPC
     private string Name { get; set; }
     private string Dialogue { get; set; }
     /* I'm not using Consistent naming schemes here across constructors, but for learning purposes -
-     * It tends to Solidy an idea of how something works better - */
+     * It tends to Solidify an idea of how something works better - */
     public NPC(string npcName, string dialogueString)
     {
         Name = npcName;
