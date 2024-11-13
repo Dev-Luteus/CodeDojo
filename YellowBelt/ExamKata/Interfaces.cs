@@ -1,8 +1,14 @@
 ﻿namespace ExamKata;
 
-public interface ICharacter
+public interface ICombatVariables
 {
-    string name { get; }
-    int health { get; }
-    
+    int Health { get; }
+    int Mana { get; }
+    int BaseDamage { get; }
+    int Armor { get; }
+}
+public interface ICombatMethods
+{
+    void Attack();
+    void TakeDamage(int damageAmount);
 }
