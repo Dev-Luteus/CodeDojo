@@ -19,10 +19,10 @@ public class Merchant : Character, INPC
     public void Trade()
     {
         Console.Write($"\n{Name}'s Inventory: ");
+        Thread.Sleep(500);
         foreach (var itemName in Inventory)
         {
-            Console.Write(itemName + " ");
-            Thread.Sleep(500);
+            Console.Write(itemName + " | ");
         }
     }
 }

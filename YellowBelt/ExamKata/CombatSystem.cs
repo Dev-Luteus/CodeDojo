@@ -3,6 +3,9 @@ namespace ExamKata
 {
     public static class CombatSystem
     {
+        private static Random luck = new Random();
+        private static int luckDamage;
+        private static int damageDealt;
         public static void StartCombat(Player player, Enemy enemy)
         {
             bool combatActive = true;
@@ -71,11 +74,15 @@ namespace ExamKata
         }
         private static void EnemyAttack(Player player, Enemy enemy)
         {
+            luckDamage = luck.Next(5, enemy.BaseDamage);
+            damageDealt = enemy.BaseDamage + luckDamage;
+            
             Thread.Sleep(500);
             Console.WriteLine("Enemy turn:\n" +
                               $"\x1b[91m{enemy.Name}\x1b[39m attacks \x1b[93m{player.Name}\x1b[39m " +
-                              $"for \x1b[91m{enemy.BaseDamage}\x1b[39m damage!\n");
-            player.Health = Math.Max(0, player.Health - enemy.BaseDamage);
+                              $"for \x1b[91m{damageDealt}\x1b[39m damage!\n");
+            
+            player.Health = Math.Max(0, player.Health - damageDealt);
         }
     }
 }
