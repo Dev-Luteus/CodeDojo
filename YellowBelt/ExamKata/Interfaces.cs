@@ -7,3 +7,8 @@ public interface ICombatVariables
     int BaseDamage { get; }
     int Armor { get; }
 }
+public interface INPC
+{
+    string Type { get; }
+    void Speak(string text);
+}

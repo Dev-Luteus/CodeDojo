@@ -8,8 +8,13 @@ namespace ExamKata
         public static void StartGame()
         {
             userChar = InitialiseCharacter();
+            
+            // I could improve this definitely, but I am running out of time teehee
             var goblin = new Enemy("Goblin", 50, 50, 0, 10, 0);
+            
             CombatSystem.StartCombat(userChar, goblin);
+            Story.FirstAct();
+            Story.SecondAct();
         }
         private static Player InitialiseCharacter()
         {
@@ -18,8 +23,3 @@ namespace ExamKata
         }
     }
 }
-// Console.WriteLine(userChar.Name);
-// Console.WriteLine(userChar.Health);
-// Console.WriteLine(userChar.Mana);
-// Console.WriteLine(userChar.BaseDamage);
-// Console.WriteLine(userChar.Armor);

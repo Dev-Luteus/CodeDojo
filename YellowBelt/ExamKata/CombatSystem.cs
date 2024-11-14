@@ -1,4 +1,5 @@
-﻿namespace ExamKata
+﻿using System.Threading;
+namespace ExamKata
 {
     public static class CombatSystem
     {
@@ -6,12 +7,15 @@
         {
             bool combatActive = true;
             int turnCounter = 0;
+            Thread.Sleep(500);
             Console.WriteLine("STORY:\n" +
                               "------");
+            Thread.Sleep(500);
             Console.WriteLine($"> You encounter a \x1b[91m{enemy.Name}\x1b[39m <\n");
             
             while (combatActive)
             {
+                Thread.Sleep(500);
                 Console.WriteLine($"\x1b[93m{player.Name}\x1b[39m Health: \x1b[92m{player.Health}\x1b[39m\n" +
                                   $"\x1b[91m{enemy.Name}\x1b[39m Health: \x1b[91m{enemy.Health}\x1b[39m\n");
                 
@@ -26,10 +30,20 @@
                 switch (choice)
                 {
                     case "A":
+                        Thread.Sleep(500);
                         CombatActions.Attack(player, enemy);
                         if (enemy.Health <= 0)
                         {
-                            Console.WriteLine($"{enemy.Name} has been defeated!");
+                            // Here, I'd give the enemy an experienceAmount, which is rewarded to
+                            // the player on death. Then experienceAmount could be given to the player.
+                            // But I'm out of time.
+                            
+                            Console.WriteLine($"\x1b[91m{enemy.Name}\x1b[39m has been defeated!");
+                            Console.WriteLine($"\n\x1b[92m{player.Name}\x1b[39m" +
+                                              $" gains\x1b[92m 30 \x1b[39m" +
+                                              $"experience points!");
+                            player.ExperiencePoints += 30;
+                            
                             combatActive = false;
                             break;
                         }
@@ -37,6 +51,7 @@
                         break;
                     
                     case "B":
+                        Thread.Sleep(500);
                         CombatActions.Heal(player);
                         EnemyAttack(player, enemy);
                         break;
@@ -56,6 +71,7 @@
         }
         private static void EnemyAttack(Player player, Enemy enemy)
         {
+            Thread.Sleep(500);
             Console.WriteLine("Enemy turn:\n" +
                               $"\x1b[91m{enemy.Name}\x1b[39m attacks \x1b[93m{player.Name}\x1b[39m " +
                               $"for \x1b[91m{enemy.BaseDamage}\x1b[39m damage!\n");
