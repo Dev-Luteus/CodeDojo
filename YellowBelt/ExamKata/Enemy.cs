@@ -1,9 +1,9 @@
 ﻿namespace ExamKata;
 
-internal class Enemy : Character, ICombatVariables, ICombatMethods
+public class Enemy : Character, ICombatVariables
 {
     public int MaxHealth { get; private set; }
-    public int Health { get; private set; }
+    public int Health { get; set; }
     public int Mana { get; }
     public int BaseDamage { get; }
     public int Armor { get; }
@@ -15,13 +15,5 @@ internal class Enemy : Character, ICombatVariables, ICombatMethods
         Mana = mana;
         BaseDamage = baseDamage;
         Armor = armor;
-    }
-    public void Attack()
-    {
-        
-    }
-    public void TakeDamage(int damageAmount)
-    {
-        Health = Math.Max(0, Health - damageAmount); 
     }
 }

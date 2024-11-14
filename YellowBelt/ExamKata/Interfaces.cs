@@ -7,8 +7,3 @@ public interface ICombatVariables
     int BaseDamage { get; }
     int Armor { get; }
 }
-public interface ICombatMethods
-{
-    void Attack();
-    void TakeDamage(int damageAmount);
-}
