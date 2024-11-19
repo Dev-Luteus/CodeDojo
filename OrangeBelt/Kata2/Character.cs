@@ -1,21 +1,29 @@
 ﻿namespace Kata2;
 
-public class Character
+public abstract class Character(string name, int health)
 {
-    private Action Action { get; set; }
-    public event Action<int> HealthChanged;
-    public string Name { get; set; }
-    public int Health { get; set; }
+    public string Name { get; set; } = name;
+    private int Health { get; set; } = health;
+    public void ChangeHealth(int amount)
+    {
+        Health += amount;
+        EventSystem.OnHealthChanged(Name, Health);
+    }
+}
 
+class Warrior(string name, int health) : Character(name, health), IAttack
+{
     public void Attack(Character target, int damage)
     {
-        Action?.Invoke();
-        target.Health -= damage;
-        HealthChanged?.Invoke(target.Health);
+        target.ChangeHealth(-damage);
+        Console.WriteLine($"{Name} is attacking {target.Name} for {damage} damage");
     }
-    public Character(string name, int health)
+}
+class Healer(string name, int health) : Character(name, health), IHeal
+{
+    public void Heal(Character target, int healthPoints)
     {
-        Name = name;
-        Health = health;
+        target.ChangeHealth(healthPoints);
+        Console.WriteLine($"{Name} is healing {target.Name} for {healthPoints} damage");
     }
 }
