@@ -17,6 +17,8 @@ public class AbilityContainer<T> where T : IAbility
         Console.WriteLine($"Removed ability: {ability.Name}");
         Abilities.Remove(ability);
     }
+    
+    // Retrieve + ContainsAbility: Coolest SRP
     private bool Retrieve(T ability)
     {
         return Abilities.Contains(ability);
