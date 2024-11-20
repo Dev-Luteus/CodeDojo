@@ -6,6 +6,10 @@ internal abstract class Program
     {
         var fireBall = new AttackAbility("Fireball", "Aoe Damage");
         var cureWounds = new HealAbility("Cure Wounds", "Touch-based Heal");
-        Console.WriteLine(fireBall);
+        var abilityContainer = new AbilityContainer<IAbility>();
+        
+        abilityContainer.Add(fireBall);
+        abilityContainer.Add(cureWounds);
+        abilityContainer.ContainsAbility(cureWounds);
     }
 }

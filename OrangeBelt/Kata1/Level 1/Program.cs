@@ -29,29 +29,29 @@
 
         private class Warrior 
         {
-            public string Name { get; set; }
-            public int Health { get; set; }
-            public Action<List<dynamic>> PrimaryAction { get; }
+            private string Name { get; set; }
+            private int Health { get; set; }
+            private Action<List<dynamic>> PrimaryAction { get; }
 
             public Warrior(string name, int health, Action primaryAction) 
             {
                 Name = name;
                 Health = health;
-                PrimaryAction = _ => primaryAction();
+                PrimaryAction = _ => primaryAction(); // Warrior's Action does not depend on List<dynamic>
             }
         }
 
         private class Healer 
         {
-            public string Name { get; set; }
-            public int Health { get; set; }
-            public Action<List<dynamic>> PrimaryAction { get; }
+            private string Name { get; set; }
+            private int Health { get; set; }
+            private Action<List<dynamic>> PrimaryAction { get; }
 
             public Healer(string name, int health, Action<List<dynamic>> primaryAction) 
             {
                 Name = name;
                 Health = health;
-                PrimaryAction = primaryAction;
+                PrimaryAction = primaryAction; // Healer's Action depends on List<dynamic>
             }
         }
     }
