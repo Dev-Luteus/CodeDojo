@@ -23,6 +23,7 @@ public static class Game
         
         Console.WriteLine();
         Console.WriteLine("Additional character actions based on role:");
+        
         characters.OrderBy(c => c.Health)
                    .ToList()
                    .ForEach(c => c.ExecutePrimaryAction(characters));

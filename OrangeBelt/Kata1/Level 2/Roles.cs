@@ -23,6 +23,7 @@ public class HealerRole
         HealAction = (character, characters) =>
         {
             var target = FindLowestHealthWarrior(characters);
+            
             Console.WriteLine($"(Healer) {character.Name} is healing someone with low health!");
             Console.WriteLine($"{character.Name} performs a powerful healing spell on {target.Name}!");
             Console.WriteLine();
@@ -40,6 +41,7 @@ public class HealerRole
     public void AnnouncePriority(Character character, List<Character> characters)
     {
         var target = FindLowestHealthWarrior(characters);
+        
         Console.WriteLine($"(Healer) {character.Name} is prioritizing healing " +
                           $"for (Warrior) {target.Name}! They have the lowest health.");
     }

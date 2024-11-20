@@ -1,8 +1,8 @@
 ﻿namespace Level_1;
 
-public class Program 
+public abstract class Program 
 {
-    static void Main(string[] args) 
+    private static void Main(string[] args) 
     {
         var characters = new List<Character> 
         {
@@ -11,6 +11,7 @@ public class Program
             new Warrior("Babel", 40, new WarriorRole()),
             new Warrior("Cara", 45, new WarriorRole())
         };
+        
         Game.Start(characters);
     }
 }

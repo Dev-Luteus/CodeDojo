@@ -1,8 +1,8 @@
 ﻿namespace Level_1 
 {
-    class Program 
+    internal abstract class Program 
     {
-        static void Main(string[] args) 
+        private static void Main(string[] args) 
         {
             var characters = new List<dynamic> 
             { 
@@ -27,7 +27,7 @@
             });
         }
 
-        class Warrior 
+        private class Warrior 
         {
             public string Name { get; set; }
             public int Health { get; set; }
@@ -41,7 +41,7 @@
             }
         }
 
-        class Healer 
+        private class Healer 
         {
             public string Name { get; set; }
             public int Health { get; set; }

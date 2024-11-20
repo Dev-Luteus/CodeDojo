@@ -4,6 +4,7 @@ public abstract class Character(string name, int health)
 {
     public string Name { get; set; } = name;
     private int Health { get; set; } = health;
+    
     public void ChangeHealth(int amount)
     {
         Health += amount;
@@ -11,7 +12,7 @@ public abstract class Character(string name, int health)
     }
 }
 
-class Warrior(string name, int health) : Character(name, health), IAttack
+internal class Warrior(string name, int health) : Character(name, health), IAttack
 {
     public void Attack(Character target, int damage)
     {
@@ -19,11 +20,12 @@ class Warrior(string name, int health) : Character(name, health), IAttack
         Console.WriteLine($"{Name} is attacking {target.Name} for {damage} damage");
     }
 }
-class Healer(string name, int health) : Character(name, health), IHeal
+
+internal class Healer(string name, int health) : Character(name, health), IHeal
 {
     public void Heal(Character target, int healthPoints)
     {
         target.ChangeHealth(healthPoints);
-        Console.WriteLine($"{Name} is healing {target.Name} for {healthPoints} damage");
+        Console.WriteLine($"{Name} healed {target.Name} for {healthPoints} points! ");
     }
 }
