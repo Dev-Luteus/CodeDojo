@@ -27,7 +27,7 @@ public class Warrior : Character
 public class Healer : Character
 {
     private HealerRole _role;
-
+    
     public Healer(string name, int health, HealerRole role) 
         : base(name, health)
     {
