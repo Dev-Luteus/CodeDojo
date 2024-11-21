@@ -1,4 +1,4 @@
-﻿namespace Level_1 
+﻿namespace Kata1 
 {
     internal abstract class Program 
     {

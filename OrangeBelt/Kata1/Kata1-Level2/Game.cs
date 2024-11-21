@@ -1,9 +1,11 @@
-﻿namespace Level_1;
+﻿namespace Kata1;
 
 public static class Game
 {
     public static void Start(List<Character> characters)
     {
+        // Definitely Violates SRP, OCP and DIP
+        
         Console.WriteLine("\x1b[92mStarting actions based on character health...\x1b[39m");
         var lowHealthWarriors = characters.OfType<Warrior>().Where(w => w.Health < 50);
 
