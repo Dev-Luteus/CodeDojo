@@ -1,6 +1,17 @@
 ﻿namespace Kata5;
 
-public interface ILogger
+public interface IAbility
 {
-    void Log(string message);
+    void Use(Character user, Character target);
+}
+
+public interface ICombat
+{
+    int Health { get; }
+    int Damage { get; }
+}
+
+public interface ICharacter
+{
+    string Name { get; }
 }
