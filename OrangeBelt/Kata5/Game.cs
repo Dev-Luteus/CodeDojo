@@ -10,10 +10,23 @@ public class Game
         _logger = logger;
         _characterManager = characterManager;
     }
-
+    
     public void Start()
     {
-        _logger.Log("Game started!");
-        // Create character here
+        // It was not asked of me to create a maximum health value, so healing goes above max and does not clamp
+        _logger.Log("Game started!\n");
+       
+        var arin = _characterManager.CreateWarrior("Arin", 100, 30);
+        var bran = _characterManager.CreateHealer("Bran", 70, 40);
+        var cara = _characterManager.CreateMage("Cara", 70, 20);
+        var goblin = _characterManager.CreateEnemy("Goblin", 50, 20);
+        
+        _characterManager.DisplayAllCharacters();
+        _logger.Log("\n...\n");
+        
+        arin.UseAbility(goblin);
+        goblin.UseAbility(arin);
+        bran.UseAbility(arin);
+        cara.UseAbility(goblin);
     }
 }

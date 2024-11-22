@@ -2,7 +2,7 @@
 
 public interface IAbility
 {
-    void Use(Character user, Character target);
+    void Use(Character user, int amount, Character target, ILogger logger);
 }
 
 public interface ICombat
