@@ -2,9 +2,17 @@
 
 public static class Game
 {
-    public static void Start(List<Character> characters)
+    public static void Start()
     {
         // Definitely Violates SRP, OCP and DIP
+        
+        var characters = new List<Character> 
+        {
+            new Warrior("Abel", 60, new WarriorRole()),
+            new Healer("Mara", 30, new HealerRole()),
+            new Warrior("Babel", 40, new WarriorRole()),
+            new Warrior("Cara", 45, new WarriorRole())
+        };
         
         Console.WriteLine("\x1b[92mStarting actions based on character health...\x1b[39m");
         var lowHealthWarriors = characters.OfType<Warrior>().Where(w => w.Health < 50);
