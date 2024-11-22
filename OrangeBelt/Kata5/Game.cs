@@ -13,7 +13,6 @@ public class Game
     
     public void Start()
     {
-        // It was not asked of me to create a maximum health value, so healing goes above max and does not clamp
         _logger.Log("Game started!\n");
        
         var arin = _characterManager.CreateWarrior("Arin", 100, 30);
@@ -28,5 +27,8 @@ public class Game
         goblin.UseAbility(arin);
         bran.UseAbility(arin);
         cara.UseAbility(goblin);
+        
+        /* It was not asked of me to create a maximum health value,
+         * So healing goes above max and does not clamp. Same story with Character death. */
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Kata5;
 
-class Program
+internal abstract class Program
 {
-    static void Main()
+    private static void Main()
     {
         ILogger logger = new Logger();
         var characterManager = new CharacterManager(logger);

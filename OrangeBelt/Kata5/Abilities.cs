@@ -2,11 +2,14 @@
 
 public class Fireball : IAbility
 {
+    private Random luck = new Random();
     public void Use(Character user, int damage, Character target, ILogger _logger)
     {
-        target.Health -= damage;
+        int luckDamage = luck.Next(1, 10);
+        target.Health -= damage + luckDamage;
+        
         _logger.Log($"{user.Name} hurls a fireball at {target.Name} " +
-                    $"dealing {damage} damage!");
+                    $"dealing {damage}+{luckDamage} damage!");
     }
 }
 
