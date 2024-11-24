@@ -8,9 +8,9 @@ public static class Game
         var babel = new Warrior("Babel", 100);
         var celine = new Healer("Celine", 80);
 
-        EventSystem.SubscribeToHealthChanged((name, health) =>
-            Console.WriteLine($"[Event] {name}'s health changed to {health}."));
-
+        EventSystem.RegisterHealth(abel);
+        EventSystem.RegisterHealth(babel);
+        
         abel.Attack(babel, 20);
         Console.WriteLine();
         celine.Heal(babel, 15);

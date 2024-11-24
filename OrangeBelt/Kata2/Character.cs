@@ -4,11 +4,12 @@ public abstract class Character(string name, int health)
 {
     public string Name { get; set; } = name;
     private int Health { get; set; } = health;
+    public event Action<string, int>? HealthChanged;
     
     public void ChangeHealth(int amount)
     {
         Health += amount;
-        EventSystem.OnHealthChanged(Name, Health);
+        HealthChanged?.Invoke(name, Health);
     }
 }
 
