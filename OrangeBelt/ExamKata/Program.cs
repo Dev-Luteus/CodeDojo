@@ -1,14 +1,14 @@
-﻿namespace ExamKata;
-
-internal abstract class Program
+﻿namespace ExamKata
 {
-    private static void Main()
+    internal class Program
     {
-        ILogger logger = new Logger();
-        EventSystem eventSystem = new EventSystem();
-        CharacterManager characterManager = new CharacterManager(logger, eventSystem);
-        TurnManager turnManager = new TurnManager(logger);
-        
-        Game.Start(logger, characterManager, turnManager);
+        private static void Main()
+        {
+            ILogger logger = new Logger();
+            EventSystem eventSystem = new EventSystem(logger);
+            CharacterManager characterManager = new CharacterManager(logger, eventSystem);
+            TurnManager turnManager = new TurnManager(logger);
+            Game.Start(logger, characterManager, turnManager);
+        }
     }
 }

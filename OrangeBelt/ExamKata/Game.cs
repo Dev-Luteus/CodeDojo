@@ -1,24 +1,27 @@
-﻿namespace ExamKata;
-
-public static class Game
+﻿namespace ExamKata
 {
-    public static void Start(ILogger logger, CharacterManager characterManager, TurnManager turnManager)
+    public static class Game
     {
-        var arin = characterManager.CreateWarrior("Arin", 100, 25);
-        var dalia = characterManager.CreateHealer("Dalia", 100, 45);
-        var cara = characterManager.CreateWarrior("Cara", 100, 25);
-        var bran = characterManager.CreateMage("Bran", 60, 45);
-        
-        var teamAlpha = new List<Character> { arin, dalia };
-        var teamBeta = new List<Character> { cara, bran };
-        turnManager.SetTeams(teamAlpha, teamBeta);
+        public static void Start(ILogger logger, CharacterManager characterManager, TurnManager turnManager)
+        {
+            var teamAlpha = new List<Character>
+            {
+                characterManager.CreateWarrior("Arin", 100, 25),
+                characterManager.CreateHealer("Dalia", 100, 45)
+            };
 
-        // do
-        // {
-        //     turnManager.NextTurn();
-        //     
-        // } while (turnManager._turnCount < 5);
-        
-        cara.UseAbility(arin);
+            var teamBeta = new List<Character>
+            {
+                characterManager.CreateWarrior("Cara", 100, 25),
+                characterManager.CreateMage("Bran", 60, 45)
+            };
+
+            turnManager.SetTeams(teamAlpha, teamBeta);
+
+            while (turnManager.TurnCount < 4)
+            {
+                turnManager.NextTurn();
+            }
+        }
     }
 }

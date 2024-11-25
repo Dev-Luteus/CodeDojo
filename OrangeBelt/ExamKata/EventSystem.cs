@@ -1,10 +1,22 @@
-﻿namespace ExamKata;
-
-public class EventSystem
+﻿namespace ExamKata
 {
-    public void RegisterHealth(Character character)
+    public class EventSystem
     {
-        character.HealthChanged += (name, health) =>
-            Console.WriteLine($">> {name}'s health changed to: {health}");
+        private readonly ILogger _logger;
+
+        public EventSystem(ILogger logger)
+        {
+            _logger = logger;
+        }
+
+        public void OnHealthChanged(Character character, int oldHealth, int newHealth)
+        {
+            _logger.Log($">> {character.Name}'s health changed from {oldHealth} to {newHealth}");
+            
+            if (character.IsDefending && oldHealth > newHealth)
+            {
+                _logger.Log($">> {character.Name} defended and reduced the damage!");
+            }
+        }
     }
 }
