@@ -1,6 +1,4 @@
-﻿using System.Threading.Channels;
-
-namespace Kata2;
+﻿namespace Kata2;
 
 public static class EventSystem
 {

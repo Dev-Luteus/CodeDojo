@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-
-namespace Kata3;
+﻿namespace Kata3;
 
 public class AbilityContainer<T> where T : IAbility
 {
