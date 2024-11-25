@@ -13,10 +13,12 @@ public static class Game
         var teamBeta = new List<Character> { cara, bran };
         turnManager.SetTeams(teamAlpha, teamBeta);
 
-        do
-        {
-            turnManager.NextTurn();
-            
-        } while (turnManager._turnCount < 5);
+        // do
+        // {
+        //     turnManager.NextTurn();
+        //     
+        // } while (turnManager._turnCount < 5);
+        
+        cara.UseAbility(arin);
     }
 }

@@ -34,7 +34,7 @@ public class CharacterManager
         }
     }
     
-    private Character CreateCharacter<TAbility>
+    private Character CreateCharacter<TAbility, TAbility2>
         (string name, string classType, int health, int baseDamage, int mana) where TAbility : IAbility, new()
     {
         var ability = new TAbility();
@@ -46,11 +46,11 @@ public class CharacterManager
     }
     
     public Character CreateWarrior(string name, int health, int baseDamage)
-        => CreateCharacter<Sword>(name, "Warrior", health, baseDamage, 0);
+        => CreateCharacter<Sword, Pass>(name, "Warrior", health, baseDamage, 0);
 
     public Character CreateHealer(string name, int health, int baseHealing)
-        => CreateCharacter<Heal>(name, "Healer", health, baseHealing, 100);
+        => CreateCharacter<Heal, Pass>(name, "Healer", health, baseHealing, 100);
 
     public Character CreateMage(string name, int health, int baseDamage)
-        => CreateCharacter<Fireball>(name, "Mage", health, baseDamage, 100);
+        => CreateCharacter<Fireball, IceBlast>(name, "Mage", health, baseDamage, 100);
 }

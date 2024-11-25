@@ -5,6 +5,14 @@ public abstract class Luck
     protected readonly Random luck = new Random();
 }
 
+public class Pass : IAbility
+{
+    public void Use(Character user, Character target, ILogger logger)
+    {
+        logger.Log($"{user.Name} passed their turn!");
+    }
+}
+
 public class Fireball : Luck, IAbility
 {
     public void Use(Character user, Character target, ILogger logger)
@@ -52,3 +60,4 @@ public class Sword : IAbility
         target.ChangeHealth(-user.Amount);
     }
 }
+
