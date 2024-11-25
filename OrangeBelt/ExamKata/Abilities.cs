@@ -1,5 +1,11 @@
 ﻿namespace ExamKata
 {
+    public interface IAbility
+    {
+        void Use(Character user, Character target, ILogger logger);
+        int ManaCost { get; }
+    }
+
     public abstract class Luck
     {
         protected readonly Random luck = new Random();
@@ -7,6 +13,8 @@
 
     public class Pass : IAbility
     {
+        public int ManaCost => 0;
+
         public void Use(Character user, Character target, ILogger logger)
         {
             logger.Log($"> {user.Name} passed their turn! <");
@@ -15,6 +23,8 @@
 
     public class Fireball : Luck, IAbility
     {
+        public int ManaCost => 15;
+
         public void Use(Character user, Character target, ILogger logger)
         {
             int damage = user.Amount + luck.Next(5, 15);
@@ -25,6 +35,8 @@
 
     public class IceBlast : Luck, IAbility
     {
+        public int ManaCost => 25;
+
         public void Use(Character user, Character target, ILogger logger)
         {
             int damage = user.Amount + luck.Next(10, 25);
@@ -35,6 +47,8 @@
 
     public class HealAlly : IAbility
     {
+        public int ManaCost => 20;
+
         public void Use(Character user, Character target, ILogger logger)
         {
             logger.Log($"{user.Name} heals {target.Name} for {user.Amount} points!");
@@ -44,6 +58,8 @@
 
     public class HealSelf : IAbility
     {
+        public int ManaCost => 20;
+
         public void Use(Character user, Character target, ILogger logger)
         {
             logger.Log($"{user.Name} heals themselves for {user.Amount} points!");
@@ -53,6 +69,8 @@
 
     public class Sword : IAbility
     {
+        public int ManaCost => 0;
+
         public void Use(Character user, Character target, ILogger logger)
         {
             int damage = user.Amount;
@@ -63,6 +81,8 @@
 
     public class Defend : IAbility
     {
+        public int ManaCost => 0;
+
         public void Use(Character user, Character target, ILogger logger)
         {
             user.IsDefending = true;

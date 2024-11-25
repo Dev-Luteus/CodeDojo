@@ -18,10 +18,7 @@
 
             turnManager.SetTeams(teamAlpha, teamBeta);
 
-            while (turnManager.TurnCount < 4)
-            {
-                turnManager.NextTurn();
-            }
+            while (turnManager.NextTurn()) { }
         }
     }
 }
