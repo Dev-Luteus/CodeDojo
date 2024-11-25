@@ -7,7 +7,8 @@ internal abstract class Program
         ILogger logger = new Logger();
         EventSystem eventSystem = new EventSystem();
         CharacterManager characterManager = new CharacterManager(logger, eventSystem);
+        TurnManager turnManager = new TurnManager(logger);
         
-        Game.Start(logger, characterManager);
+        Game.Start(logger, characterManager, turnManager);
     }
 }

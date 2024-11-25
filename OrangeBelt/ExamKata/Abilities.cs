@@ -1,13 +1,30 @@
 ﻿namespace ExamKata;
 
-public class Fireball : IAbility
+public abstract class Luck
 {
-    private Random luck = new Random();
-    public void Use(Character user, Character target, ILogger _logger)
+    protected readonly Random luck = new Random();
+}
+
+public class Fireball : Luck, IAbility
+{
+    public void Use(Character user, Character target, ILogger logger)
     {
-        int luckDamage = luck.Next(1, 10);
+        int luckDamage = luck.Next(5, 15);
         
-        _logger.Log($"{user.Name} hurls a fireball at {target.Name} " +
+        logger.Log($"{user.Name} hurls a fireball at {target.Name} " +
+                    $"dealing {user.Amount}+{luckDamage} damage!");
+        
+        target.ChangeHealth(-(user.Amount + luckDamage));
+    }
+}
+
+public class IceBlast : Luck, IAbility
+{
+    public void Use(Character user, Character target, ILogger logger)
+    {
+        int luckDamage = luck.Next(10, 25);
+        
+        logger.Log($"{user.Name} shoots an ice blast at {target.Name} " +
                     $"dealing {user.Amount}+{luckDamage} damage!");
         
         target.ChangeHealth(-(user.Amount + luckDamage));
@@ -16,10 +33,9 @@ public class Fireball : IAbility
 
 public class Heal : IAbility
 {
-    private readonly Logger _logger;
-    public void Use(Character user, Character target, ILogger _logger)
+    public void Use(Character user, Character target, ILogger logger)
     {
-        _logger.Log($"{user.Name} heals {target.Name} " +
+        logger.Log($"{user.Name} heals {target.Name} " +
                     $"for {user.Amount} points!");
         
         target.ChangeHealth(user.Amount);
@@ -28,9 +44,9 @@ public class Heal : IAbility
 
 public class Sword : IAbility
 {
-    public void Use(Character user, Character target, ILogger _logger)
+    public void Use(Character user, Character target, ILogger logger)
     {
-        _logger.Log($"{user.Name} slashes with their sword towards {target.Name} " +
+        logger.Log($"{user.Name} slashes with their sword towards {target.Name} " +
                     $"dealing {user.Amount} damage!");
         
         target.ChangeHealth(-user.Amount);

@@ -6,14 +6,18 @@ public class Character
     private readonly ILogger _logger;
     public event Action<string, int>? HealthChanged;
     public string Name { get; set; }
+    public string ClassType { get; private set; }
     public int Health { get; private set; }
     public int Amount { get; set; }
+    public int Mana { get; private set; }
     
-    public Character(string name, int health, int amount, IAbility ability, ILogger logger)
+    public Character(string name, string classType, int health, int amount, int mana, IAbility ability, ILogger logger)
     {
         Name = name;
+        ClassType = classType;
         Health = health;
         Amount = amount;
+        Mana = mana;
         _ability = ability;
         _logger = logger;
     }

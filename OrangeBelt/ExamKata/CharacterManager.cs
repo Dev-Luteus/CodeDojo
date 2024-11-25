@@ -11,26 +11,6 @@ public class CharacterManager
         _logger = logger;
         _eventSystem = eventSystem;
     }
-
-    private Character CreateCharacter<TAbility>
-        (string name, int health, int baseDamage) where TAbility : IAbility, new()
-    {
-        var ability = new TAbility();
-        var character = new Character(name, health, baseDamage, ability, _logger);
-        
-        _eventSystem.RegisterHealth(character);
-        _characters.Add(character);
-        return character;
-    }
-
-    public Character CreateWarrior(string name, int health, int baseDamage)
-        => CreateCharacter<Sword>(name, health, baseDamage);
-
-    public Character CreateHealer(string name, int health, int baseHealing)
-        => CreateCharacter<Heal>(name, health, baseHealing);
-
-    public Character CreateMage(string name, int health, int baseDamage)
-        => CreateCharacter<Fireball>(name, health, baseDamage);
     
     public void Remove(string name)
     {
@@ -53,4 +33,24 @@ public class CharacterManager
             _logger.Log($"Character: {character.Name}, Health: {character.Health}, Base Damage: {character.Amount}");
         }
     }
+    
+    private Character CreateCharacter<TAbility>
+        (string name, string classType, int health, int baseDamage, int mana) where TAbility : IAbility, new()
+    {
+        var ability = new TAbility();
+        var character = new Character(name, classType, health, baseDamage, mana, ability, _logger);
+        
+        _eventSystem.RegisterHealth(character);
+        _characters.Add(character);
+        return character;
+    }
+    
+    public Character CreateWarrior(string name, int health, int baseDamage)
+        => CreateCharacter<Sword>(name, "Warrior", health, baseDamage, 0);
+
+    public Character CreateHealer(string name, int health, int baseHealing)
+        => CreateCharacter<Heal>(name, "Healer", health, baseHealing, 100);
+
+    public Character CreateMage(string name, int health, int baseDamage)
+        => CreateCharacter<Fireball>(name, "Mage", health, baseDamage, 100);
 }
