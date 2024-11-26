@@ -27,10 +27,17 @@
 
         private void DisplayTeams()
         {
-            _logger.Log("--- Welcome to the Battle Arena! ---");
+            _logger.Log("\x1b[94m" +
+                        ">> Welcome to the Battle Arena! <<\n" +
+                        "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨" +
+                        "\x1b[39m");
+            
             _logger.Log($"Team Alpha: {string.Join(", ", _teamAlpha.Select(c => $"{c.ClassType} {c.Name}"))}");
             _logger.Log($"Team Beta: {string.Join(", ", _teamBeta.Select(c => $"{c.ClassType} {c.Name}"))}");
-            _logger.Log("\nStarting the battle...");
+            
+            _logger.Log("\n\x1b[92m" +
+                        "Starting the battle..." +
+                        "\x1b[39m");
         }
 
         public bool NextTurn()
@@ -38,7 +45,8 @@
             var currentTeam = TurnCount % 2 == 0 ? _teamAlpha : _teamBeta;
             var currentCharacter = currentTeam[TurnCount / 2 % currentTeam.Count];
 
-            _logger.Log($"\nRound {RoundCount}, Turn {TurnCount + 1}: \n" +
+            _logger.Log($"\nRound {RoundCount} | Turn {TurnCount + 1}: \n" +
+                        $"¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ \n" +
                         $"{currentCharacter.Name} ({(currentTeam == _teamAlpha ? "Team Alpha" : "Team Beta")}) " +
                         $"| Health: {currentCharacter.Health}, Mana: {currentCharacter.Mana}");
 
@@ -77,7 +85,8 @@
                 Console.ReadLine();
                 Console.Clear();
                 
-                _logger.Log($"--- Round {RoundCount} ---");
+                _logger.Log($"\x1b[94m>> Round {RoundCount} <<\n" +
+                            $"¨¨¨¨¨¨¨¨¨¨¨¨¨\x1b[39m");
             }
 
             return CheckWinCondition();
