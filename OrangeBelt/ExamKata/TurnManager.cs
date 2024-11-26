@@ -117,7 +117,7 @@
 
         private int ChooseAction(Character character)
         {
-            while (true) // I try to avoid this usually but it works. Please don't give me an F
+            while (true) // I try to avoid this usually but it works (do/while otherwise). Please don't give me an F
             {
                 _logger.Log("Choose action:");
                 

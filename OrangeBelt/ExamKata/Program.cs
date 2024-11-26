@@ -1,6 +1,6 @@
 ﻿namespace ExamKata
 {
-    internal class Program
+    internal abstract class Program
     {
         private static void Main()
         {
