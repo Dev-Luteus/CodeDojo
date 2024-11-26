@@ -2,8 +2,9 @@
 {
     public interface IAbility
     {
-        void Use(Character user, Character target, ILogger logger);
         int ManaCost { get; }
+        
+        void Use(Character user, Character target, ILogger logger);
     }
 
     public abstract class Luck
@@ -28,6 +29,7 @@
         public void Use(Character user, Character target, ILogger logger)
         {
             int damage = user.Amount + luck.Next(5, 15);
+            
             logger.Log($"{user.Name} hurls a fireball at {target.Name} dealing {damage} damage!");
             target.ChangeHealth(-damage);
         }
@@ -40,6 +42,7 @@
         public void Use(Character user, Character target, ILogger logger)
         {
             int damage = user.Amount + luck.Next(10, 25);
+            
             logger.Log($"{user.Name} shoots an ice blast at {target.Name} dealing {damage} damage!");
             target.ChangeHealth(-damage);
         }
@@ -74,6 +77,7 @@
         public void Use(Character user, Character target, ILogger logger)
         {
             int damage = user.Amount;
+            
             logger.Log($"{user.Name} slashes with their sword towards {target.Name} dealing {damage} damage!");
             target.ChangeHealth(-damage);
         }

@@ -1,25 +1,27 @@
 ﻿namespace ExamKata
 {
-    public class CharacterManager
+    public class CharacterFactory
     {
         private readonly ILogger _logger;
         private readonly EventSystem _eventSystem;
-        private readonly List<Character> _characters = new List<Character>();
+        private readonly List<Character> _characters = [];
 
-        public CharacterManager(ILogger logger, EventSystem eventSystem)
+        public CharacterFactory(ILogger logger, EventSystem eventSystem)
         {
             _logger = logger;
             _eventSystem = eventSystem;
         }
-
+        
         public void Remove(string name)
         {
             var character = _characters.FirstOrDefault(c => c.Name == name);
+            
             if (character == null)
             {
                 _logger.Log($"Character with name '{name}' not found.");
                 return;
             }
+            
             _characters.Remove(character);
             _logger.Log($"Removed character: {character.Name}");
         }

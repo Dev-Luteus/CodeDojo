@@ -6,9 +6,10 @@
         {
             ILogger logger = new Logger();
             EventSystem eventSystem = new EventSystem(logger);
-            CharacterManager characterManager = new CharacterManager(logger, eventSystem);
+            CharacterFactory characterFactory = new CharacterFactory(logger, eventSystem);
             TurnManager turnManager = new TurnManager(logger);
-            Game.Start(logger, characterManager, turnManager);
+            
+            Game.Start(logger, characterFactory, turnManager);
         }
     }
 }

@@ -2,11 +2,12 @@
 {
     public class TurnManager
     {
+        private readonly ILogger _logger;
         private List<Character> _teamAlpha;
         private List<Character> _teamBeta;
+        
         private int TurnCount { get; set; }
         private int RoundCount { get; set; }
-        private readonly ILogger _logger;
 
         public TurnManager(ILogger logger)
         {
@@ -44,6 +45,7 @@
             if (currentCharacter.IsDefeated || (currentCharacter.Mana == 0 && currentCharacter.ClassType != "Warrior"))
             {
                 _logger.Log($"{currentCharacter.Name} cannot take a turn.");
+                
                 return AdvanceTurn();
             }
 
@@ -51,6 +53,7 @@
             if (actionChoice == currentCharacter.Abilities.Count)
             {
                 _logger.Log($"{currentCharacter.Name} passed their turn.");
+                
                 return AdvanceTurn();
             }
 
@@ -100,11 +103,13 @@
             if (_teamAlpha.All(c => c.IsDefeated))
             {
                 _logger.Log("Team Beta wins!");
+                
                 return false;
             }
             if (_teamBeta.All(c => c.IsDefeated))
             {
                 _logger.Log("Team Alpha wins!");
+                
                 return false;
             }
             return true;
@@ -115,10 +120,12 @@
             while (true) // I try to avoid this usually but it works. Please don't give me an F
             {
                 _logger.Log("Choose action:");
+                
                 for (int i = 0; i < character.Abilities.Count; i++)
                 {
                     _logger.Log($"> {i + 1}: {character.Abilities[i].GetType().Name} (Mana cost: {character.Abilities[i].ManaCost})");
                 }
+                
                 _logger.Log($"> {character.Abilities.Count + 1}: Pass");
                 _logger.Log("");
 
@@ -126,6 +133,7 @@
                 {
                     return choice - 1;
                 }
+                
                 _logger.Log("Invalid input. Please try again.");
             }
         }
@@ -133,16 +141,19 @@
         private Character GetTarget(Character currentCharacter, int actionChoice, List<Character> currentTeam)
         {
             var ability = currentCharacter.Abilities[actionChoice];
+            
             if (ability is HealSelf)
             {
                 return currentCharacter;
             }
+            
             if (ability is Defend)
             {
                 return null;
             }
 
             var targetTeam = ability is HealAlly ? currentTeam : (currentTeam == _teamAlpha ? _teamBeta : _teamAlpha);
+            
             return ChooseTarget(targetTeam);
         }
 
@@ -151,10 +162,12 @@
             while (true)
             {
                 _logger.Log("Choose target:");
+                
                 for (int i = 0; i < targetTeam.Count; i++)
                 {
                     _logger.Log($"> {i + 1}: {targetTeam[i].Name} ({targetTeam[i].ClassType})");
                 }
+                
                 _logger.Log("");
 
                 if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 1 && choice <= targetTeam.Count)
