@@ -149,7 +149,7 @@
             
             if (ability is Defend)
             {
-                return null;
+                return null!;
             }
 
             var targetTeam = ability is HealAlly ? currentTeam : (currentTeam == _teamAlpha ? _teamBeta : _teamAlpha);
