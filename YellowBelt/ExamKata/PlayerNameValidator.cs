@@ -6,6 +6,7 @@
         {
             bool validHeroName = false;
             string? username = null;
+            
             do
             {
                 try
@@ -23,6 +24,7 @@
                 {
                     Console.WriteLine($"\nError: {ex.Message}\n" +
                                       "\x1b[92mPress anything to continue..\x1b[39m");
+                    
                     Console.ReadLine();
                     Console.Clear();
                 }
@@ -40,6 +42,7 @@
                 Console.WriteLine("You chose the name:\n" +
                                   $"\x1b[92m{username}\x1b[39m\n" +
                                   "\nAre you satisfied with this name? (Y/N)");
+                
                 string choice = Console.ReadLine()!.ToUpper();
                 
                 if (choice == "Y")

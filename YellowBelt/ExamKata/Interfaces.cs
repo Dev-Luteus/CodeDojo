@@ -10,5 +10,6 @@ public interface ICombatVariables
 public interface INPC
 {
     string Type { get; }
+    
     void Speak(string text);
 }

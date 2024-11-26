@@ -6,13 +6,16 @@ namespace ExamKata
         private static Random luck = new Random();
         private static int luckDamage;
         private static int damageDealt;
+        
         public static void StartCombat(Player player, Enemy enemy)
         {
             bool combatActive = true;
             int turnCounter = 0;
+            
             Thread.Sleep(500);
             Console.WriteLine("STORY:\n" +
                               "------");
+            
             Thread.Sleep(500);
             Console.WriteLine($"> You encounter a \x1b[91m{enemy.Name}\x1b[39m <\n");
             
@@ -35,6 +38,7 @@ namespace ExamKata
                     case "A":
                         Thread.Sleep(500);
                         CombatActions.Attack(player, enemy);
+                        
                         if (enemy.Health <= 0)
                         {
                             // Here, I'd give the enemy an experienceAmount, which is rewarded to
@@ -42,26 +46,31 @@ namespace ExamKata
                             // But I'm out of time.
                             
                             Console.WriteLine($"\x1b[91m{enemy.Name}\x1b[39m has been defeated!");
+                            
                             Console.WriteLine($"\n\x1b[92m{player.Name}\x1b[39m" +
                                               $" gains\x1b[92m 30 \x1b[39m" +
                                               $"experience points!");
+                            
                             player.ExperiencePoints += 30;
                             
                             combatActive = false;
                             break;
                         }
                         EnemyAttack(player, enemy);
+                        
                         break;
                     
                     case "B":
                         Thread.Sleep(500);
                         CombatActions.Heal(player);
                         EnemyAttack(player, enemy);
+                        
                         break;
 
                     default:
                         Console.Clear();
                         Console.WriteLine("\x1b[91m>> Invalid choice! Please choose 'A' or 'B' <<\x1b[39m");
+                        
                         break;
                 }
                 if (player.Health <= 0)

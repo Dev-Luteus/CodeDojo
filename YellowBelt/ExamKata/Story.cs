@@ -21,13 +21,16 @@ public static class Story
         Console.WriteLine("\n...\n");
         Thread.Sleep(500);
         
-        var Eva = new Merchant("Eva", new List<string>() {"Sword", "Shield", "Health Potion"});
+        var Eva = new Merchant("Eva", ["Sword", "Shield", "Health Potion"]);
         
         Eva.Speak("You look like you need gear! Come, take a look at my wares." +
                   $"\n> My name is \x1b[92m{Merchant._name}\x1b[39m!");
         Thread.Sleep(500);
+        
         Eva.Trade();
         Thread.Sleep(500);
+        
+        
         Console.WriteLine("\n...\n");
         Console.WriteLine("To be continued...");
     }

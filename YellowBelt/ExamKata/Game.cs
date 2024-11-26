@@ -5,6 +5,7 @@ namespace ExamKata
     public static class Game
     {
         private static Player userChar;
+        
         public static void StartGame()
         {
             userChar = InitialiseCharacter();
@@ -19,6 +20,7 @@ namespace ExamKata
         private static Player InitialiseCharacter()
         {
             var validName = PlayerNameValidator.GetValidPlayerName();
+            
             return CharacterCreator.ChooseClass(validName);
         }
     }
